@@ -1,0 +1,419 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    min-height: 100vh;
+    color: #e8e8f0;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+h1 {
+    font-size: 2.5rem;
+    color: #4ade80;
+    margin-bottom: 0.25rem;
+}
+
+.tagline {
+    color: #888;
+}
+
+/* Password Display */
+.password-section {
+    background: rgba(255,255,255,0.05);
+    border-radius: 16px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+.password-display {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.password-display input {
+    flex: 1;
+    padding: 1rem;
+    font-size: 1.1rem;
+    font-family: 'Courier New', monospace;
+    background: rgba(0,0,0,0.3);
+    border: 2px solid rgba(255,255,255,0.1);
+    border-radius: 10px;
+    color: #4ade80;
+    letter-spacing: 1px;
+}
+
+.password-display input:focus {
+    outline: none;
+    border-color: #4ade80;
+}
+
+.icon-btn {
+    padding: 1rem;
+    border: 2px solid rgba(255,255,255,0.1);
+    border-radius: 10px;
+    background: rgba(255,255,255,0.05);
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.icon-btn:hover {
+    background: rgba(255,255,255,0.1);
+    border-color: #4ade80;
+}
+
+/* Strength Indicator */
+.password-strength {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.strength-bar {
+    flex: 1;
+    height: 8px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.strength-fill {
+    height: 100%;
+    width: 0%;
+    transition: all 0.3s;
+    border-radius: 4px;
+}
+
+.strength-fill.weak { background: #ef4444; width: 25%; }
+.strength-fill.fair { background: #f59e0b; width: 50%; }
+.strength-fill.good { background: #eab308; width: 75%; }
+.strength-fill.strong { background: #4ade80; width: 100%; }
+
+.strength-text {
+    font-size: 0.85rem;
+    min-width: 80px;
+}
+
+/* Options Section */
+.options-section {
+    background: rgba(255,255,255,0.05);
+    border-radius: 16px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+.option-row {
+    margin-bottom: 1rem;
+}
+
+.option-row label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #c0c0d0;
+}
+
+.option-row input[type="range"] {
+    width: 100%;
+    height: 8px;
+    border-radius: 4px;
+    background: rgba(255,255,255,0.1);
+    appearance: none;
+    cursor: pointer;
+}
+
+.option-row input[type="range"]::-webkit-slider-thumb {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #4ade80;
+    cursor: pointer;
+}
+
+.option-row input[type="text"] {
+    width: 100%;
+    padding: 0.75rem;
+    background: rgba(0,0,0,0.3);
+    border: 2px solid rgba(255,255,255,0.1);
+    border-radius: 8px;
+    color: #e8e8f0;
+    font-size: 0.95rem;
+}
+
+.option-row input[type="text"]:focus {
+    outline: none;
+    border-color: #4ade80;
+}
+
+/* Checkboxes */
+.option-checkboxes {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    padding: 0.75rem;
+    background: rgba(0,0,0,0.2);
+    border-radius: 8px;
+    transition: background 0.2s;
+}
+
+.checkbox-label:hover {
+    background: rgba(0,0,0,0.3);
+}
+
+.checkbox-label input {
+    width: 18px;
+    height: 18px;
+    accent-color: #4ade80;
+}
+
+/* Generate Button */
+.generate-btn {
+    width: 100%;
+    padding: 1.25rem;
+    background: linear-gradient(135deg, #4ade80, #22c55e);
+    color: #0a0a0a;
+    border: none;
+    border-radius: 12px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    margin-bottom: 1.5rem;
+}
+
+.generate-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 20px rgba(74, 222, 128, 0.4);
+}
+
+/* Presets */
+.presets-section, .bulk-section, .history-section, .tips-section {
+    background: rgba(255,255,255,0.05);
+    border-radius: 16px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+h2 {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    color: #a0a0b0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.preset-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.preset-btn {
+    padding: 0.6rem 1rem;
+    border: 2px solid rgba(255,255,255,0.1);
+    border-radius: 8px;
+    background: transparent;
+    color: #c0c0d0;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.preset-btn:hover {
+    border-color: #4ade80;
+    color: #4ade80;
+}
+
+/* Bulk Generate */
+.bulk-controls {
+    display: flex;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+}
+
+.bulk-controls input {
+    width: 80px;
+    padding: 0.6rem;
+    background: rgba(0,0,0,0.3);
+    border: 2px solid rgba(255,255,255,0.1);
+    border-radius: 8px;
+    color: #e8e8f0;
+    font-size: 1rem;
+    text-align: center;
+}
+
+.bulk-btn {
+    padding: 0.6rem 1.5rem;
+    background: rgba(74, 222, 128, 0.2);
+    border: 2px solid #4ade80;
+    border-radius: 8px;
+    color: #4ade80;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.bulk-btn:hover {
+    background: rgba(74, 222, 128, 0.3);
+}
+
+.bulk-output {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.bulk-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 0.75rem;
+    background: rgba(0,0,0,0.2);
+    border-radius: 6px;
+    font-family: 'Courier New', monospace;
+    font-size: 0.9rem;
+}
+
+.bulk-item button {
+    padding: 0.25rem 0.5rem;
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 4px;
+    color: #888;
+    cursor: pointer;
+    font-size: 0.8rem;
+}
+
+.bulk-item button:hover {
+    border-color: #4ade80;
+    color: #4ade80;
+}
+
+/* History */
+.clear-btn {
+    padding: 0.25rem 0.5rem;
+    background: rgba(239, 68, 68, 0.2);
+    border: none;
+    border-radius: 4px;
+    color: #ef4444;
+    font-size: 0.75rem;
+    cursor: pointer;
+}
+
+.history-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    max-height: 150px;
+    overflow-y: auto;
+}
+
+.empty-state {
+    color: #666;
+    text-align: center;
+    padding: 1rem;
+}
+
+.history-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.6rem 0.75rem;
+    background: rgba(0,0,0,0.2);
+    border-radius: 8px;
+}
+
+.history-item .password {
+    flex: 1;
+    font-family: 'Courier New', monospace;
+    font-size: 0.85rem;
+    color: #4ade80;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.history-item .copy-btn {
+    padding: 0.25rem 0.5rem;
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 4px;
+    color: #888;
+    cursor: pointer;
+}
+
+.history-item .copy-btn:hover {
+    border-color: #4ade80;
+    color: #4ade80;
+}
+
+/* Tips */
+.tips-section ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.tips-section li {
+    padding: 0.5rem 0;
+    padding-left: 1.5rem;
+    position: relative;
+    color: #a0a0b0;
+    font-size: 0.9rem;
+}
+
+.tips-section li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: #4ade80;
+}
+
+footer {
+    text-align: center;
+    color: #666;
+    margin-top: 2rem;
+}
+
+@media (max-width: 500px) {
+    h1 {
+        font-size: 2rem;
+    }
+    
+    .option-checkboxes {
+        grid-template-columns: 1fr;
+    }
+    
+    .preset-buttons {
+        justify-content: center;
+    }
+}

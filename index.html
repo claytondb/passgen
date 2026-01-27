@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PassGen - Secure Password Generator</title>
+    <meta name="description" content="Generate strong, secure passwords instantly. Free, no signup, works offline.">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🔐 PassGen</h1>
+            <p class="tagline">Generate secure passwords instantly</p>
+        </header>
+
+        <main>
+            <!-- Password Display -->
+            <div class="password-section">
+                <div class="password-display">
+                    <input type="text" id="password-output" readonly value="Click Generate">
+                    <button id="copy-btn" class="icon-btn" title="Copy">📋</button>
+                    <button id="refresh-btn" class="icon-btn" title="Regenerate">🔄</button>
+                </div>
+                <div class="password-strength">
+                    <div class="strength-bar">
+                        <div class="strength-fill" id="strength-fill"></div>
+                    </div>
+                    <span class="strength-text" id="strength-text">Generate a password</span>
+                </div>
+            </div>
+
+            <!-- Options -->
+            <div class="options-section">
+                <div class="option-row">
+                    <label for="length">Length: <span id="length-value">16</span></label>
+                    <input type="range" id="length" min="4" max="64" value="16">
+                </div>
+
+                <div class="option-checkboxes">
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="uppercase" checked>
+                        <span class="checkmark"></span>
+                        ABC Uppercase
+                    </label>
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="lowercase" checked>
+                        <span class="checkmark"></span>
+                        abc Lowercase
+                    </label>
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="numbers" checked>
+                        <span class="checkmark"></span>
+                        123 Numbers
+                    </label>
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="symbols" checked>
+                        <span class="checkmark"></span>
+                        !@# Symbols
+                    </label>
+                </div>
+
+                <div class="option-row">
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="exclude-ambiguous">
+                        <span class="checkmark"></span>
+                        Exclude ambiguous (l, 1, I, O, 0)
+                    </label>
+                </div>
+
+                <div class="option-row">
+                    <label for="exclude-chars">Exclude characters:</label>
+                    <input type="text" id="exclude-chars" placeholder="e.g., {}[]">
+                </div>
+            </div>
+
+            <!-- Generate Button -->
+            <button id="generate-btn" class="generate-btn">🔐 Generate Password</button>
+
+            <!-- Quick Presets -->
+            <div class="presets-section">
+                <h2>Quick Presets</h2>
+                <div class="preset-buttons">
+                    <button class="preset-btn" data-preset="pin">📱 PIN (4 digits)</button>
+                    <button class="preset-btn" data-preset="simple">👤 Simple (12 chars)</button>
+                    <button class="preset-btn" data-preset="strong">💪 Strong (16 chars)</button>
+                    <button class="preset-btn" data-preset="ultra">🛡️ Ultra (24 chars)</button>
+                    <button class="preset-btn" data-preset="passphrase">📝 Passphrase</button>
+                </div>
+            </div>
+
+            <!-- Multiple Passwords -->
+            <div class="bulk-section">
+                <h2>Generate Multiple</h2>
+                <div class="bulk-controls">
+                    <input type="number" id="bulk-count" value="5" min="1" max="20">
+                    <button id="bulk-generate" class="bulk-btn">Generate</button>
+                </div>
+                <div class="bulk-output" id="bulk-output"></div>
+            </div>
+
+            <!-- History -->
+            <div class="history-section">
+                <h2>📜 Recent Passwords <button id="clear-history" class="clear-btn">Clear</button></h2>
+                <div class="history-list" id="history-list">
+                    <p class="empty-state">Generated passwords will appear here</p>
+                </div>
+            </div>
+
+            <!-- Tips -->
+            <div class="tips-section">
+                <h2>🔒 Password Tips</h2>
+                <ul>
+                    <li>Use at least 12 characters for important accounts</li>
+                    <li>Never reuse passwords across different sites</li>
+                    <li>Consider using a password manager</li>
+                    <li>Enable two-factor authentication when available</li>
+                </ul>
+            </div>
+        </main>
+
+        <footer>
+            <p>🔒 100% client-side • No data stored • Works offline</p>
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
